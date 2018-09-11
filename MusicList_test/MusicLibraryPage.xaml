@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="MusicList_test.MusicLibraryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MusicList_test"
+    xmlns:data="using:MusicList_test.Model"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ListView x:Name ="SongList" IsItemClickEnabled="True" 
+                      ItemsSource="{x:Bind songList.AllItems}" ItemClick="SongClick">
+
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="data:Song">
+                    <UserControl>
+                        <Grid Height="80">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup>
+                                    <VisualState x:Name="state1">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="0"/>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="AlbumCover.Visibility" Value="Collapsed"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="state2">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="600"/>
+                                        </VisualState.StateTriggers>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="Assets/音符.PNG" Grid.Column="0" Width="50" Height="50" ></Image>
+                            <TextBlock Text="{x:Bind name}" Grid.Column="1" VerticalAlignment="Center" Foreground="Black" FontWeight="Normal" FontSize="15" LineHeight="20" TextWrapping="Wrap" />
+                        </Grid>
+                    </UserControl>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        
+    </Grid>
+</Page>

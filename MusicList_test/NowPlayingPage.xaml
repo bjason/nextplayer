@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="MusicList_test.NowPlayingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MusicList_test"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid x:Name="InlineMusicViewGrid" Grid.Column="1" Margin="66,-50,-18,-166"  >
+            <ScrollViewer Margin="10">
+                <StackPanel>
+                    <Image x:Name="AlbumCover" Source="Assets/音符.png" Width="200" Height="200" Stretch="None"/>
+                    <RelativePanel Width="350">
+                        <Button BorderThickness="0.1" Background="Transparent"  Style="{StaticResource ButtonRevealStyle}"
+                                    x:Name="Share"   RelativePanel.AlignRightWithPanel="True"  Margin="-40.4,0,0,0" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" Click="ShareSong">
+                            <StackPanel>
+                                <Image Source="Assets/share.png" Height="20" Width="20"/>
+                            </StackPanel>
+                        </Button>
+
+                    </RelativePanel>
+                    <TextBox BorderThickness="0" x:Name="Title" Width="350" Header="Name" Margin="0,12,0,0" />
+                    <TextBox BorderThickness="0" x:Name ="Artist" Width="350"  Margin="0,12,0,0" Header="Singer" />
+                    <TextBox BorderThickness="0" x:Name ="Path" Width="350"  Margin="0,12,0,0" Header="Path" HorizontalAlignment="Center" />
+                    <RelativePanel Width="350" Margin="0,24,0,0">
+                        <Button BorderThickness="0.1" Background="Transparent"  Style="{StaticResource ButtonRevealStyle}"
+                                    x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Width="80" Click="UpdateSong" />
+                        <Button BorderThickness="0.1" Background="Transparent"  Style="{StaticResource ButtonRevealStyle}"
+                                    x:Name="DeleteButton" Content="Delete" Width="80" RelativePanel.AlignRightWithPanel="True" Click="DeleteSong" />
+
+                    </RelativePanel>
+
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+
+
+        
+    </Grid>
+</Page>

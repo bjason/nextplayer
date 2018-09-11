@@ -1,0 +1,1 @@
+E:\GitHub\UWP-MusicPlayer-master\MusicList_test\MusicList_test\MusicList_test.csproj;x86
