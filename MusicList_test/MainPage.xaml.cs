@@ -145,7 +145,7 @@ namespace MusicList_test
             int id = 0;
             string now_name = songList.SelectedItem.Title;
             string now_singer = songList.SelectedItem.Artist;
-            using (var statement = App.conn.Prepare("SELECT Id, Name, Singer FROM Customer WHERE Id LIKE ? OR Name LIKE ? OR Singer LIKE ? "))
+            using (var statement = App.conn.Prepare("SELECT Id, Name, Singer FROM MusicLib WHERE Id LIKE ? OR Name LIKE ? OR Singer LIKE ? "))
             {
                 statement.Bind(1, query);
                 statement.Bind(2, query);
@@ -171,7 +171,7 @@ namespace MusicList_test
         //{
         //    if (songList.SelectedItem != null)
         //    {
-        //        using (var custstmt = App.conn.Prepare("UPDATE Customer SET Name = ?, Singer = ?, Path = ? WHERE Id = ?"))
+        //        using (var custstmt = App.conn.Prepare("UPDATE MusicLib SET Name = ?, Singer = ?, Path = ? WHERE Id = ?"))
         //        {
         //            custstmt.Bind(1, Title.Text);
         //            custstmt.Bind(2, Artist.Text);
@@ -223,7 +223,7 @@ namespace MusicList_test
             string dalbum;
 
             using (var statement = App.conn.Prepare(
-                "SELECT Title, Artist, Album FROM Customer WHERE Name LIKE ? OR Singer LIKE ? OR Album LIKE ?"))
+                "SELECT Title, Artist, Album FROM MusicLib WHERE Name LIKE ? OR Singer LIKE ? OR Album LIKE ?"))
             {
                 statement.Bind(1, para);
                 statement.Bind(2, para);
